@@ -1449,7 +1449,7 @@ class Word2VecTrainables(utils.SaveLoad):
         # randomize weights vector by vector, rather than materializing a huge random matrix in RAM at once
         for i in xrange(len(wv.vocab)):
             # construct deterministic seed from word AND seed argument
-            wv.vectors[i] = self.seeded_vector(wv.index2word[i] + str(self.seed), wv.vector_size)
+            wv.vectors[i] = self.seeded_vector(wv.index2word[i] + (self.seed), wv.vector_size)
         if hs:
             self.syn1 = zeros((len(wv.vocab), self.layer1_size), dtype=REAL)
         if negative:
